@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	min-width: rem(320px);
+	min-height: 100vh;
+	color: #fff;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	background-image: url("/assets/argencon/bg-baufest.jpg");
+	background-color: #282220;
+	background-size: cover;
+}
+
+a {
+	color: inherit;
+	text-underline-offset: rem(2px);
+	outline-offset: rem(4px);
+	outline-color: #fff;
+}
+
+kbd {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	border: rem(1px) solid;
+	border-radius: rem(4px);
+	padding: rem(3px) rem(5px);
+	background-color: #beff43;
+    color: black;
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+
+code {
+	padding: rem(2px) rem(4px);
+	border-radius: rem(4px);
+	background-color: #2f2927;
+	border: 1px solid #666;
+}
+
+ins {
+	text-decoration: none;
+}

@@ -1,0 +1,49 @@
+---
+title: "Fin"
+layout: default
+permalink: /end/
+---
+<div class="rules">
+	<p>¡Felicidades! Ya descubriste lo importante que es la accesibilidad digital a la hora de navegar en una página web.</p>
+</div>
+<div class="end">
+	<div class="tweet">
+		<div class="tweet-avatar" aria-hidden="true">
+			🥧
+		</div>
+		<div class="tweet-content">
+			{%- assign tweet-text = "Terminaste “Teclas hechizadas: un desafio poco accesible”, en 66:66.66." -%}
+			<p>
+				{{ tweet-text }} 
+			</p>
+		</div>
+	</div>
+	<p id="QR">
+		Conocé más sobre accesibilidad digital escaneando el código QR.
+	</p>
+	<img class="QR-accesibilidad" src="../assets/argencon/MicrosoftTeams-image (1).png">
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const tweetParagraph = document.querySelector('.tweet-content p');
+	const defaultScore = '66:66.66';
+	const sessionScore = parseFloat(sessionStorage.getItem('score')) || 5999999;
+
+	let sessionScoreFormatted = '';
+	let minutes = Math.floor((sessionScore % (1000 * 60 * 60)) / (1000 * 60));
+	let seconds = Math.floor((sessionScore % (1000 * 60)) / 1000);
+	let milliseconds = Math.floor(sessionScore - (minutes * 60 * 1000) - (seconds * 1000));
+	minutes = minutes.toString().padStart(2, '0');
+	seconds = seconds.toString().padStart(2, '0');
+	milliseconds = milliseconds.toString().padStart(3, '0').substring(0, 2);
+	sessionScoreFormatted = `${minutes}:${seconds}.${milliseconds}`;
+
+	let tweetContent = tweetParagraph.innerHTML.trim();
+	tweetContent = tweetContent.replace(defaultScore, sessionScoreFormatted);
+	tweetParagraph.innerHTML = tweetContent;
+	const tweetButton = document.querySelector('.tweet-button');
+	let tweetButtonHref = tweetButton.getAttribute('href');
+	tweetButtonHref = tweetButtonHref.replace(defaultScore, sessionScoreFormatted)
+	tweetButton.setAttribute('href', tweetButtonHref);
+});
+</script>
